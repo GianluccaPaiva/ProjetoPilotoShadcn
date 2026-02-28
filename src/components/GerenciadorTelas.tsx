@@ -22,7 +22,7 @@ export const GerenciadorTelas = () => {
                             turma={turma.turma}
                             inscrito={estaInscrito(key)}
                             clickInscrito={() => mudarInscricao(key)}
-                            clickMural={marcarMural}
+                            clickMural={() => marcarMural(key)}
                         />
                     ))}
                 </div>
