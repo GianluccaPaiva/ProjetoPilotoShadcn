@@ -8,6 +8,7 @@ export const GerenciadorTelas = () => {
                 <TurmaCard
                     key={key}
                     materia={key}
+                    banners={turma.banners}
                     professor={turma.professor}
                     fotoProfessor={turma.foto_professor}
                     sala={turma.sala}
