@@ -28,7 +28,7 @@ export function Mural({ materia, turma }: MuralProps) {
   } = useMural();
 
   return (
-    <div className="mx-auto w-full max-w-3xl space-y-1">
+    <div className="mx-auto w-full max-w-3xl space-y-1 min-h-screen pb-16">
       <Card className="relative w-full overflow-hidden">
         <img
           src={turma.banners}
