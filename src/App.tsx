@@ -7,11 +7,12 @@ import { Toaster } from "sonner"
 import { useGerenciador } from "./hooks/useGerenciador"
 
 function App() {
-  const { usuario, mudarInscricao, estaInscrito, marcarMural } = useGerenciador();
+  const { usuario, mudarInscricao, estaInscrito, marcarMural, navegarPara } = useGerenciador();
+
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <SidebarProvider>
-        <AppSidebar />
+        <AppSidebar navegarPara={navegarPara} />
 
         <main className="pagina-principal">
           <Navbar />

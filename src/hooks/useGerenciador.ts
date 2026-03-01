@@ -3,7 +3,7 @@ import { useState } from "react";
 export function useGerenciador() {
     const [usuario, setUsuario] = useState({
         inscricoes: {} as Record<string, boolean>,
-        acessouOq: "calendario" as "mural"|"calendario"|"principal",
+        acessouOq: "calendario" as "mural" | "calendario" | "principal",
         chaveMural: "",
     });
 
@@ -27,5 +27,9 @@ export function useGerenciador() {
         setUsuario((anterior) => ({ ...anterior, acessouOq: "calendario" }));
     };
 
-    return { usuario, mudarInscricao, estaInscrito, marcarMural, marcarCalendario };
+    const navegarPara = (tela: "mural" | "calendario" | "principal") => {
+        setUsuario((anterior) => ({ ...anterior, acessouOq: tela }));
+    };
+
+    return { usuario, mudarInscricao, estaInscrito, marcarMural, marcarCalendario, navegarPara };
 }

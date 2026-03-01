@@ -25,7 +25,11 @@ const items = [
     },
 ]
 
-const AppSidebar = () => {
+type AppSidebarProps = {
+    navegarPara: (tela: "mural" | "calendario" | "principal") => void;
+}
+
+const AppSidebar = ({ navegarPara }: AppSidebarProps) => {
     return (
         <Sidebar collapsible="icon">
             <SidebarHeader>
@@ -51,7 +55,16 @@ const AppSidebar = () => {
                             {items.map((item) => (
                                 <SidebarMenuItem key={item.title}>
                                     <SidebarMenuButton asChild>
-                                        <a href={item.url} >
+                                        <a
+                                            href={item.url}
+                                            onClick={(e) => {
+                                                if (item.title === "Inicio") {
+                                                    e.preventDefault();
+                                                    navegarPara("principal");
+                                                }
+                                                {/*Os outros botões continuarão com o comportamento padrão por enquanto*/ }
+                                            }}
+                                        >
                                             <item.icon />
                                             <span>{item.title}</span>
                                         </a>
