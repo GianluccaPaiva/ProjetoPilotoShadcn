@@ -10,8 +10,11 @@ import {
 import { Settings } from "lucide-react"
 import { SidebarMenuButton } from "./ui/sidebar"
 import { Switch } from "@/components/ui/switch"
+import { useConfiguracoes } from "@/hooks/useConfiguracoes"
 
 export function Configuracoes() {
+  const { notificacoes, clickarNotificacoes } = useConfiguracoes();
+
   return (
     <DropdownMenu>
       <SidebarMenuButton asChild>
@@ -30,8 +33,9 @@ export function Configuracoes() {
           <span>Notificações</span>
           <Switch
             id="notificacoes"
-            onClick={(e) => e.stopPropagation()}
+            onClick={()=> clickarNotificacoes()}
             aria-label="Ativar notificações"
+            checked={notificacoes}
           />
         </DropdownMenuItem>
         <DropdownMenuSeparator />
