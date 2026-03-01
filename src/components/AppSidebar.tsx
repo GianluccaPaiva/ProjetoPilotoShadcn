@@ -3,7 +3,7 @@ import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@radix-ui/react-collapsible"
 import { Configuracoes } from "./Configuracoes"
 import type { OpcoesTela } from "@/hooks/useGerenciador"
-import { Card } from "./ui/card"
+import { listaEscolar } from "@/hooks/leituraJson"
 
 const items = [
     {
@@ -112,18 +112,38 @@ const AppSidebar = ({ navegarPara, inscricoes, marcarMural }: AppSidebarProps & 
                         <CollapsibleContent>
                             <SidebarContent>
                                 <SidebarMenu>
-                                    {/*Aqui vão entrar as materias selecionadas*/}
-                                    <SidebarMenuItem>
+                                    {/*Materias selecionadas*/}
+                                    <SidebarMenu>
                                         {Object.entries(inscricoes).filter(([_, inscrito]) => inscrito).length === 0 ? (
-                                            <span className="text-sm text-muted-foreground">Nenhuma aula inscrita</span>
+                                            <div className="px-4 py-2 text-sm text-muted-foreground">
+                                                Nenhuma aula inscrita
+                                            </div>
                                         ) : (
-                                            Object.entries(inscricoes).filter(([_, inscrito]) => inscrito).map(([key, _]) => (
-                                                <Card key={key} className="p-2 mb-2 cursor-pointer" onClick={() => marcarMural(key)}>
-                                                    {key}
-                                                </Card>
-                                            ))
+                                            Object.entries(inscricoes)
+                                                .filter(([_, inscrito]) => inscrito)
+                                                .map(([key, _]) => {
+
+                                                    const turma = listaEscolar.turmas[key];
+                                                    if (!turma) return null;
+
+                                                    return (
+                                                        <SidebarMenuItem key={key}>
+                                                            <SidebarMenuButton
+                                                                onClick={() => marcarMural(key)}
+                                                                className="cursor-pointer h-9 px-2 rounded-md hover:bg-secondary data-[state=open]:bg-secondary"
+                                                            >
+                                                                {/* O Ícone pode ser q mude de cor */}
+                                                                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-orange-100 text-[11px] font-bold text-orange-700 dark:bg-orange-900/50 dark:text-orange-400">
+                                                                    {turma.materia.charAt(0).toUpperCase()}
+                                                                </div>
+
+                                                                <span className="truncate">{turma.materia} - {turma.turma}</span>
+                                                            </SidebarMenuButton>
+                                                        </SidebarMenuItem>
+                                                    );
+                                                })
                                         )}
-                                    </SidebarMenuItem>
+                                    </SidebarMenu>
                                 </SidebarMenu>
                             </SidebarContent>
                         </CollapsibleContent>
