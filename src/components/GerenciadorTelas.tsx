@@ -5,6 +5,7 @@ import { Calendario } from "./Calendario";
 import { Pesquisar } from "./Pesquisar";
 import { Mensagens } from "./Mensagens";
 import type {OpcoesTela} from"@/hooks/useGerenciador";
+import { TigresoEXE } from "./TigresoEXE";
 type GerenciadorTelasProps = {
     usuario: any;
     mudarInscricao: (key: string) => void;
@@ -53,6 +54,12 @@ export function GerenciadorTelas (props: GerenciadorTelasProps){
             {props.usuario.acessouOq === "mensagens" &&
                 <div className="w-full flex items-center justify-center p-4">
                     <Mensagens/>
+                </div>}
+            {props.usuario.acessouOq === "suporte" &&
+                <div className="w-full flex items-center justify-center p-4">
+                    <div>
+                        <TigresoEXE navegarPara={props.navegarPara} />
+                    </div>
                 </div>}
         </>
     )

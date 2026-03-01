@@ -1,5 +1,5 @@
 import { useState } from "react";
-export type OpcoesTela = "mural" | "calendario" | "principal" | "pesquisar"|"mensagens";
+export type OpcoesTela = "mural" | "calendario" | "principal" | "pesquisar"|"mensagens" | "suporte";
 export function useGerenciador() {
     const [usuario, setUsuario] = useState({
         inscricoes: {} as Record<string, boolean>,

@@ -2,6 +2,7 @@ import { Home, Inbox, Calendar, Search, Plus, ChevronDown } from "lucide-react"
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "./ui/sidebar"
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@radix-ui/react-collapsible"
 import { Configuracoes } from "./Configuracoes"
+import type { OpcoesTela } from "@/hooks/useGerenciador"
 const items = [
     {
         title: "Inicio",
@@ -26,7 +27,7 @@ const items = [
 ]
 
 type AppSidebarProps = {
-    navegarPara: (tela: "mural" | "calendario" | "principal" | "pesquisar") => void;
+    navegarPara: (tela: OpcoesTela) => void;
 }
 
 const AppSidebar = ({ navegarPara }: AppSidebarProps) => {
@@ -73,6 +74,10 @@ const AppSidebar = ({ navegarPara }: AppSidebarProps) => {
                                                 if(item.title === "Mensagens"){
                                                     e.preventDefault();
                                                     navegarPara("mensagens");
+                                                }
+                                                if(item.title === "Suporte"){
+                                                    e.preventDefault();
+                                                    navegarPara("suporte");
                                                 }
                                                 {/*Os outros botões aqui*/ }
                                             }}
@@ -124,7 +129,7 @@ const AppSidebar = ({ navegarPara }: AppSidebarProps) => {
             <SidebarFooter>
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <Configuracoes />
+                        <Configuracoes navegarPara={navegarPara} />
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarFooter>
