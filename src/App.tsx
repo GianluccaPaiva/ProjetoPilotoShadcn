@@ -22,6 +22,7 @@ function App() {
               mudarInscricao={mudarInscricao}
               estaInscrito={estaInscrito}
               marcarMural={marcarMural}
+              navegarPara={navegarPara}
             />
           </div>
         </main>

@@ -2,12 +2,14 @@ import { listaEscolar } from "@/hooks/leituraJson";
 import { TurmaCard } from "./TurmaCard";
 import { Mural } from "./Mural";
 import { Calendario } from "./Calendario";
+import { Pesquisar } from "./Pesquisar";
 
 type GerenciadorTelasProps = {
     usuario:any;
     mudarInscricao:(key:string)=>void;
     estaInscrito:(key:string)=>boolean;
     marcarMural:(key:string)=>void;
+    navegarPara:(tela: "mural" | "calendario" | "principal")=>void;
 }
 
 export const GerenciadorTelas = (props:GerenciadorTelasProps) => {
@@ -40,6 +42,10 @@ export const GerenciadorTelas = (props:GerenciadorTelasProps) => {
             {props.usuario.acessouOq === "calendario" && 
                 <div className="w-full flex items-center justify-center p-4">
                     <Calendario />
+                </div>}
+                {props.usuario.acessouOq === "pesquisa" && 
+                <div className="w-full flex items-center justify-center p-4">
+                    <Pesquisar mudarInscricao={props.mudarInscricao} estaInscrito={props.estaInscrito} marcarMural={props.marcarMural} voltarPrincipal={() => props.navegarPara("principal")} />
                 </div>}
         </>
     )
