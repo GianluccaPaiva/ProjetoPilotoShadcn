@@ -1,6 +1,7 @@
 import { toast } from "sonner"
+import type { OpcoesTela } from "./useGerenciador"
 
-export function useTigreso(navegarPara?: (tela: string) => void) {
+export function useTigreso(navegarPara?: (tela: OpcoesTela) => void) {
   const clickMatar = () => {
     toast("Como ousa tentar matar o grande Tigreso? Sofra por isso")
     setTimeout(() => {

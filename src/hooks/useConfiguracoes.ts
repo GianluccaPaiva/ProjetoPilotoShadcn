@@ -11,10 +11,8 @@ export function useConfiguracoes() {
     const clicarSuporte = () => {
         const novaContagem = contagemSuporte + 1
         setContagemSuporte(novaContagem)
-        console.log('Clique no suporte:', novaContagem)
 
         if (novaContagem === 5) {
-            console.log('5 cliques atingidos! Tentando tocar áudio...')
 
             const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext
             const audioContext = new AudioContextClass()
@@ -31,7 +29,6 @@ export function useConfiguracoes() {
 
                 gainNode.gain.value = 5.0
 
-                console.log('🔊 Tocando tigreso.mp3 com ganho:', gainNode.gain.value)
                 audio.play().catch((error) => {
                     console.error('❌ Erro no MP3, fallback para beep:', error)
 
@@ -48,7 +45,6 @@ export function useConfiguracoes() {
                     oscillator.stop(audioContext.currentTime + 0.25)
                 })
 
-                audio.onended = () => console.log('✅ Áudio finalizado!')
             } catch (error) {
                 console.error('❌ Erro ao preparar áudio:', error)
             }
