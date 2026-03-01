@@ -44,7 +44,7 @@ const AppSidebar = ({ navegarPara, inscricoes, marcarMural }: AppSidebarProps & 
                         <SidebarMenuButton asChild>
                             <a href="/">
                                 <img src="Logos/Logo3.png" alt="Logo da Escola Nexus" width={22} height={22} />
-                                <span>NexusClass</span>
+                                <span className="text-gradient text-lg tracking-tight">NexusClass</span>
                             </a>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
