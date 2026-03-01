@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -25,8 +24,7 @@ type TurmasProps = {
 
 export function TurmaCard({ materia, professor, banners, fotoProfessor, sala, turma, inscrito = false, compacto = false, clickMural, clickInscrito }: TurmasProps) {
   return (
-    <Card className={`relative mx-auto w-full pt-0 ${compacto ? '' : 'max-w-sm'}`}>
-
+    <Card className={`relative mx-auto w-full pt-0 overflow-hidden ${compacto ? '' : 'max-w-sm'}`}>
       <div className={`absolute inset-0 z-30 bg-black/35 ${compacto ? 'h-24' : 'aspect-video'}`} />
 
       <img
@@ -36,14 +34,12 @@ export function TurmaCard({ materia, professor, banners, fotoProfessor, sala, tu
       />
 
       <CardHeader className={compacto ? "p-4 pb-1 pt-0" : ""}>
-        <CardAction>
-          <Badge asChild variant="link" className="rounded-full">
-            <img
-              src={fotoProfessor}
-              alt="Foto do professor"
-              className={`rounded-full object-cover ${compacto ? 'h-10 w-10' : 'h-14 w-14'}`}
-            />
-          </Badge>
+        <CardAction className="relative z-40 h-11 w-11">
+          <img
+            src={fotoProfessor}
+            alt="Foto do professor"
+            className={`rounded-full object-cover border-2 border-background shadow-sm ${compacto ? 'h-10 w-10' : 'h-14 w-14'}`}
+          />
         </CardAction>
 
         <CardTitle className={compacto ? "text-lg mt-1" : ""}>{materia}</CardTitle>
