@@ -10,7 +10,7 @@ export const GerenciadorTelas = () => {
     return (
         <>
             {!usuario.acessouMural ? (
-                <div>
+                <div className="display grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {listaEscolar.turmas && Object.entries(listaEscolar.turmas).map(([key, turma]) => (
                         <TurmaCard
                             key={key}

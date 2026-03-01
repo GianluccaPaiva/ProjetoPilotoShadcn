@@ -31,16 +31,16 @@ export function TurmaCard({ materia, professor, banners, fotoProfessor, sala, tu
       <img
         src={banners}
         alt="Banner da turma"
-        className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+        className="relative z-20 aspect-video w-full object-cover brightness-70"
       />
       <CardHeader>
         <CardAction>
-          <Badge asChild variant="secondary" className="rounded-full">
+          <Badge asChild variant="link" className="rounded-full">
             {/* Imagem professor */}
             <img
               src={fotoProfessor}
               alt="Foto do professor"
-              className="h-10 w-10 rounded-full object-cover"
+              className="h-14 w-14 rounded-full object-cover"
             />
             </Badge>
         </CardAction>
