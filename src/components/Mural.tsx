@@ -29,6 +29,7 @@ export function Mural({ materia, turma }: MuralProps) {
     abrirMural,
     abrirAtividades,
     abrirContato,
+    enviarMensagemContato,
   } = useMural();
 
   return (
@@ -113,7 +114,7 @@ export function Mural({ materia, turma }: MuralProps) {
             </div>
           </Card>
         ) : (
-          <AtendimentoContato />
+          <AtendimentoContato onClick={() => enviarMensagemContato()} />
         )}
       </div>
     </div>

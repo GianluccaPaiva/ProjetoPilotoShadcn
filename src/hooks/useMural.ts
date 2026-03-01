@@ -51,6 +51,10 @@ export function useMural() {
         setPosts((anterior) => ({ ...anterior, tipoAmostar: "contato" }));
     };
 
+    const enviarMensagemContato = () => {
+        alert("Mensagem enviada para o professor!");
+    }
+
     return {
         posts,
         conteudo,
@@ -61,5 +65,6 @@ export function useMural() {
         abrirMural,
         abrirAtividades,
         abrirContato,
+        enviarMensagemContato,
     };
 }
