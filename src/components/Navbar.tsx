@@ -38,7 +38,7 @@ const Navbar = () => {
                             <Bell />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-48">
+                    <DropdownMenuContent className="w-40" align="end">
                         <DropdownMenuGroup>
                             <DropdownMenuLabel>Tipos de Notificação</DropdownMenuLabel>
                             <DropdownMenuCheckboxItem
