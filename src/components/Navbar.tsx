@@ -1,6 +1,6 @@
 "use client"
 
-import { LogOutIcon, Moon, Edit, Sun, User } from "lucide-react"
+import { LogOutIcon, Moon, Edit, Sun, User, Mail, Bell, AlertCircle } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import {
     DropdownMenu,
@@ -9,13 +9,21 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuGroup,
+    DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "./ui/button"
 import { useTheme } from "./provedores/ThemeProvider"
 import { SidebarTrigger } from "./ui/sidebar"
+import React from "react"
 
 const Navbar = () => {
     const { setTheme } = useTheme()
+    const [notifications, setNotifications] = React.useState({
+        email: true,
+        sms: false,
+        push: true,
+    })
 
     return (
         <nav className="barra-navegacao">
@@ -23,7 +31,37 @@ const Navbar = () => {
             <SidebarTrigger />
             {/*Direita*/}
             <div className="conteiner-navegacao">
-                <a href="/">Notificações icone</a>
+                {/* Menu de Notificações */}
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="outline" size="icon" className="focus-visible:ring-0 focus-visible:ring-offset-0">
+                            <Bell />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-48">
+                        <DropdownMenuGroup>
+                            <DropdownMenuLabel>Tipos de Notificação</DropdownMenuLabel>
+                            <DropdownMenuCheckboxItem
+                                checked={notifications.email}
+                                onCheckedChange={(checked) =>
+                                    setNotifications({ ...notifications, email: checked === true })
+                                }
+                            >
+                                <Mail />
+                                Mensagens
+                            </DropdownMenuCheckboxItem>
+                            <DropdownMenuCheckboxItem
+                                checked={notifications.push}
+                                onCheckedChange={(checked) =>
+                                    setNotifications({ ...notifications, push: checked === true })
+                                }
+                            >
+                                <AlertCircle />
+                                Alertas
+                            </DropdownMenuCheckboxItem>
+                        </DropdownMenuGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
                 {/*Tema do Site*/}
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -66,7 +104,7 @@ const Navbar = () => {
                     </DropdownMenuContent>
                 </DropdownMenu>
             </div>
-        </nav>
+        </nav >
     )
 }
 
