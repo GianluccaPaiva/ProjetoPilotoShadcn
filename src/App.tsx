@@ -4,8 +4,10 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { ThemeProvider } from "./components/provedores/ThemeProvider"
 import { GerenciadorTelas } from "./components/GerenciadorTelas"
 import { Toaster } from "sonner"
+import { useGerenciador } from "./hooks/useGerenciador"
 
 function App() {
+  const { usuario, mudarInscricao, estaInscrito, marcarMural } = useGerenciador();
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <SidebarProvider>
@@ -14,7 +16,12 @@ function App() {
         <main className="pagina-principal">
           <Navbar />
           <div className="pagina-conteudo">
-            <GerenciadorTelas />
+            <GerenciadorTelas
+              usuario={usuario}
+              mudarInscricao={mudarInscricao}
+              estaInscrito={estaInscrito}
+              marcarMural={marcarMural}
+            />
           </div>
         </main>
       </SidebarProvider>

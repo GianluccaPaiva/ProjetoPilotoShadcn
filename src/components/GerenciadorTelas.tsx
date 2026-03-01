@@ -1,15 +1,21 @@
 import { listaEscolar } from "@/hooks/leituraJson";
 import { TurmaCard } from "./TurmaCard";
-import { useGerenciador } from "@/hooks/useGerenciador";
 import { Mural } from "./Mural";
+import { Calendario } from "./Calendario";
 
-export const GerenciadorTelas = () => {
-    const { usuario, mudarInscricao, estaInscrito, marcarMural } = useGerenciador();
-    const turmaSelecionada = listaEscolar.turmas[usuario.chaveMural];
+type GerenciadorTelasProps = {
+    usuario:any;
+    mudarInscricao:(key:string)=>void;
+    estaInscrito:(key:string)=>boolean;
+    marcarMural:(key:string)=>void;
+}
+
+export const GerenciadorTelas = (props:GerenciadorTelasProps) => {
+    const turmaSelecionada = listaEscolar.turmas[props.usuario.chaveMural];
 
     return (
         <>
-            {!usuario.acessouMural ? (
+            {props.usuario.acessouOq === "principal" &&(
                 <div className="display grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {listaEscolar.turmas && Object.entries(listaEscolar.turmas).map(([key, turma]) => (
                         <TurmaCard
@@ -20,17 +26,21 @@ export const GerenciadorTelas = () => {
                             fotoProfessor={turma.foto_professor}
                             sala={turma.sala}
                             turma={turma.turma}
-                            inscrito={estaInscrito(key)}
-                            clickInscrito={() => mudarInscricao(key)}
-                            clickMural={() => marcarMural(key)}
+                            inscrito={props.estaInscrito(key)}
+                            clickInscrito={() => props.mudarInscricao(key)}
+                            clickMural={() => props.marcarMural(key)}
                         />
                     ))}
                 </div>
-            ) : (
+            ) } {props.usuario.acessouOq === "mural" && (
                 <div>
-                    {turmaSelecionada && <Mural materia={usuario.chaveMural} turma={turmaSelecionada} />}
+                    {turmaSelecionada && <Mural materia={props.usuario.chaveMural} turma={turmaSelecionada} />}
                 </div>
             )}
+            {props.usuario.acessouOq === "calendario" && 
+                <div className="w-full flex items-center justify-center p-4">
+                    <Calendario />
+                </div>}
         </>
     )
 }
