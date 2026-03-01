@@ -32,6 +32,7 @@ export function Mural({ materia, turma }: MuralProps) {
     abrirAtividades,
     abrirContato,
     abrirMensagemContato,
+    abrirAlunos,
   } = useMural();
 
   return (
@@ -66,6 +67,9 @@ export function Mural({ materia, turma }: MuralProps) {
                 </Button>
                 <Button onClick={() => abrirContato()} className="text-white" variant="link" size="sm">
                   Entrar em contato
+                </Button>
+                <Button onClick={() => abrirAlunos()} className="text-white" variant="link" size="sm">
+                  Alunos
                 </Button>
               </ButtonGroup>
             </div>
