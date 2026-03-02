@@ -1,6 +1,7 @@
 # 📚 Projeto Piloto Shadcn - Educacional
 
 > Um projeto educativo para aprender sobre **shadcn/ui**, seus componentes, estilização com **Tailwind CSS** e boas práticas de desenvolvimento com **React** e **TypeScript**.
+> [Página de visualização]("https://gianluccapaiva.github.io/ProjetoPilotoShadcn/")
 
 ---
 
@@ -771,23 +772,6 @@ npx shadcn-ui@latest add [componente]
 ## 📄 Licença
 
 Este é um projeto **estritamente educativo e não comercial**. Sinta-se livre para usar, modificar e compartilhar para fins de aprendizado.
-
----
-
-## 🤝 Contribuindo
-
-Para melhorias educacionais neste projeto:
-1. Faça um Fork
-2. Crie uma branch (`git checkout -b feature/melhorias`)
-3. Commit suas mudanças (`git commit -am 'Adiciona melhorias'`)
-4. Push para a branch (`git push origin feature/melhorias`)
-5. Abra um Pull Request
-
----
-
-## 📞 Dúvidas ou Sugestões?
-
-Se você tiver dúvidas sobre shadcn/ui, Tailwind CSS ou qualquer aspecto do projeto, consulte a documentação oficial dos projetos ou abra uma issue neste repositório.
 
 ---
 
