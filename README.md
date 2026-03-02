@@ -1,10 +1,12 @@
 # 📚 Projeto Piloto Shadcn - Educacional
 
 > Um projeto educativo para aprender sobre **shadcn/ui**, seus componentes, estilização com **Tailwind CSS** e boas práticas de desenvolvimento com **React** e **TypeScript**.
-> [Página de visualização]("https://gianluccapaiva.github.io/ProjetoPilotoShadcn/")
 
 ---
+## Página de Visualização
+ [Link da aplicação hospedada]("https://gianluccapaiva.github.io/ProjetoPilotoShadcn/")
 
+---
 ## 📖 Sumário
 
 1. [Sobre o Projeto](#sobre-o-projeto)
