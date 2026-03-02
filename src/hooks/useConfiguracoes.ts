@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { getAssetPath } from "@/lib/assetPath"
 
 export function useConfiguracoes() {
     const[notificacoes, setNotificacoes] = useState(false)
@@ -18,7 +19,7 @@ export function useConfiguracoes() {
             const audioContext = new AudioContextClass()
 
             try {
-                const audio = new Audio('/tigreso.mp3')
+                const audio = new Audio(getAssetPath('sons/tigreso.mp3'))
                 audio.crossOrigin = 'anonymous'
                 audio.volume = 1
 
