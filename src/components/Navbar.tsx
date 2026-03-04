@@ -19,8 +19,7 @@ export function Navbar() {
     const { setTheme } = useTheme()
     const [notifications, setNotifications] = React.useState({
         email: true,
-        sms: false,
-        push: true,
+        alert: true,
     })
 
     return (
@@ -49,9 +48,9 @@ export function Navbar() {
                                 Mensagens
                             </DropdownMenuCheckboxItem>
                             <DropdownMenuCheckboxItem
-                                checked={notifications.push}
+                                checked={notifications.alert}
                                 onCheckedChange={(checked) =>
-                                    setNotifications({ ...notifications, push: checked === true })
+                                    setNotifications({ ...notifications, alert: checked === true })
                                 }
                             >
                                 <AlertCircle />

@@ -4,8 +4,9 @@ import { Mural } from "./Mural";
 import { Calendario } from "./Calendario";
 import { Pesquisar } from "./Pesquisar";
 import { Mensagens } from "./Mensagens";
-import type {OpcoesTela} from"@/hooks/useGerenciador";
+import type { OpcoesTela } from "@/hooks/useGerenciador";
 import { TigresoEXE } from "./TigresoEXE";
+
 type GerenciadorTelasProps = {
     usuario: any;
     mudarInscricao: (key: string) => void;
@@ -14,7 +15,7 @@ type GerenciadorTelasProps = {
     navegarPara: (tela: OpcoesTela) => void;
 }
 
-export function GerenciadorTelas (props: GerenciadorTelasProps){
+export function GerenciadorTelas(props: GerenciadorTelasProps) {
     const turmaSelecionada = listaEscolar.turmas[props.usuario.chaveMural];
 
     return (
@@ -53,7 +54,7 @@ export function GerenciadorTelas (props: GerenciadorTelasProps){
                 </div>}
             {props.usuario.acessouOq === "mensagens" &&
                 <div className="w-full flex items-center justify-center p-4">
-                    <Mensagens/>
+                    <Mensagens />
                 </div>}
             {props.usuario.acessouOq === "suporte" &&
                 <div className="w-full flex items-center justify-center p-4">
