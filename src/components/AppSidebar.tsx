@@ -35,7 +35,7 @@ type AppSidebarProps = {
     marcarMural: (key: string) => void;
 }
 
-const AppSidebar = ({ navegarPara, inscricoes, marcarMural }: AppSidebarProps & { inscricoes: Record<string, boolean>, marcarMural: (key: string) => void }) => {
+export function AppSidebar({ navegarPara, inscricoes, marcarMural }: AppSidebarProps) {
     return (
         <Sidebar collapsible="icon">
             <SidebarHeader>
@@ -163,5 +163,3 @@ const AppSidebar = ({ navegarPara, inscricoes, marcarMural }: AppSidebarProps & 
         </Sidebar>
     )
 }
-
-export default AppSidebar

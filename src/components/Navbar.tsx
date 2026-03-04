@@ -17,7 +17,7 @@ import { useTheme } from "./provedores/ThemeProvider"
 import { SidebarTrigger } from "./ui/sidebar"
 import React from "react"
 
-const Navbar = () => {
+export function Navbar() {
     const { setTheme } = useTheme()
     const [notifications, setNotifications] = React.useState({
         email: true,
@@ -108,5 +108,3 @@ const Navbar = () => {
         </nav >
     )
 }
-
-export default Navbar

@@ -1,5 +1,5 @@
-import Navbar from "./components/Navbar"
-import AppSidebar from "./components/AppSidebar"
+import { Navbar } from "./components/Navbar"
+import { AppSidebar } from "./components/AppSidebar"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { ThemeProvider } from "./components/provedores/ThemeProvider"
 import { GerenciadorTelas } from "./components/GerenciadorTelas"
