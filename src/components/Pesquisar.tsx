@@ -67,9 +67,7 @@ export function Pesquisar(props: PesquisarProps) {
                                             turma={turma.turma}
                                             inscrito={props.estaInscrito(key)}
                                             clickInscrito={() => props.mudarInscricao(key)}
-                                            clickMural={() => {
-                                                props.marcarMural(key)
-                                            }}
+                                            clickMural={() => { props.marcarMural(key) }}
                                         />
                                     ))}
                                 </div>
